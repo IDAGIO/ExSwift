@@ -359,7 +359,7 @@ internal extension Dictionary {
         - returns: Filtered dictionary
     */
     func pick (_ keys: Key...) -> Dictionary {
-        return pick(unsafeBitCast(keys, to: [Key].self))
+        return pick(keys)
     }
 
     /**
