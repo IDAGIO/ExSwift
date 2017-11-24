@@ -136,7 +136,7 @@ public extension CountableClosedRange {
  *  Operator == to compare 2 ranges first, second by start & end indexes. If first.startIndex is equal to
  *  second.startIndex and first.endIndex is equal to second.endIndex the ranges are considered equal.
  */
-public func == <U: Comparable> (first: Range<U>, second: Range<U>) -> Bool {
+public func == <U> (first: Range<U>, second: Range<U>) -> Bool {
   return first.lowerBound == second.lowerBound &&
     first.upperBound == second.upperBound
 }

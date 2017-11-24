@@ -68,7 +68,7 @@ internal extension Dictionary {
         - parameter values: Dictionaries to intersect
         - returns: Dictionary of [key: value] couples contained in all the dictionaries and self
     */
-    func intersection <K, V> (_ dictionaries: [K: V]...) -> [K: V] where K: Equatable, V: Equatable {
+    func intersection <K, V> (_ dictionaries: [K: V]...) -> [K: V] where V: Equatable {
 
         //  Casts self from [Key: Value] to [K: V]
         let filtered = mapFilter { (item, value) -> (K, V)? in
@@ -207,27 +207,6 @@ internal extension Dictionary {
         for (key, value) in self {
             each(key, value)
         }
-
-    }
-
-    /**
-        Constructs a dictionary containing every [key: value] pair from self
-        for which testFunction evaluates to true.
-    
-        - parameter testFunction: Function called to test each key, value
-        - returns: Filtered dictionary
-    */
-    func filter (_ test: (Key, Value) -> Bool) -> Dictionary {
-
-        var result = Dictionary()
-
-        for (key, value) in self {
-            if test(key, value) {
-                result[key] = value
-            }
-        }
-
-        return result
 
     }
 
@@ -404,6 +383,6 @@ public func & <K, V: Equatable> (first: [K: V], second: [K: V]) -> [K: V] {
 /**
     Union operator
 */
-public func | <K: Hashable, V> (first: [K: V], second: [K: V]) -> [K: V] {
+public func | <K, V> (first: [K: V], second: [K: V]) -> [K: V] {
     return first.union(second)
 }

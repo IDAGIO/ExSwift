@@ -398,7 +398,7 @@ public extension Array {
         for i in (1..<self.count).reversed() {
         // for var i = self.count - 1; i >= 1; i -= 1 {
             let j = Int.random(max: i)
-            swap(&self[i], &self[j])
+            swapAt(i, j)
         }
 
     }
@@ -1239,7 +1239,7 @@ public extension Array {
         - returns: an array sorted by that block, in ascending order
     */
     public func sortUsing <U:Comparable> (_ block: ((Element) -> U)) -> [Element] {
-        return self.sorted(by: { block($0.0) < block($0.1) })
+        return self.sorted(by: { block($0) < block($1) })
     }
 
     /**
@@ -1324,7 +1324,7 @@ public extension Array {
         - parameter range:
         - returns: Array of values
     */
-    @available(*, unavailable, message: "use the '[U](range)' constructor") public func range <U: Comparable> (_ range: CountableRange<U>) -> [U] {
+    @available(*, unavailable, message: "use the '[U](range)' constructor") public func range <U> (_ range: CountableRange<U>) -> [U] {
         return [U](range)
     }
 

@@ -131,10 +131,10 @@ open class ExSwift {
         - parameter parameters: Arguments to pass to function
         - returns: Wrapper function
     */
-    open class func bind <P, T> (_ function: @escaping (P...) -> T, _ parameters: P...) -> ((Void) -> T) {
+    open class func bind <P, T> (_ function: @escaping (P...) -> T, _ parameters: P...) -> (() -> T) {
         typealias Function = ([P]) -> T
 
-        return { Void -> T in
+        return { () -> T in
             let adaptedFunction = unsafeBitCast(function, to: Function.self)
             return adaptedFunction(parameters)
         }
