@@ -13,7 +13,7 @@ public extension String {
     /**
         String length
     */
-    var length: Int { return self.characters.count }
+    var length: Int { return self.count }
 
     /**
         self.capitalizedString shorthand
@@ -31,7 +31,7 @@ public extension String {
             return nil
         }
 
-        let range = characters.index(startIndex, offsetBy: range.lowerBound) ..< characters.index(startIndex, offsetBy: range.upperBound)
+        let range = index(startIndex, offsetBy: range.lowerBound) ..< index(startIndex, offsetBy: range.upperBound)
 
         return String(self[range])
     }
@@ -41,7 +41,7 @@ public extension String {
            return nil
         }
 
-        let range = characters.index(startIndex, offsetBy: range.lowerBound) ..< characters.index(startIndex, offsetBy: range.upperBound)
+        let range = index(startIndex, offsetBy: range.lowerBound) ..< index(startIndex, offsetBy: range.upperBound)
 
         return String(self[range])
     }
@@ -68,7 +68,7 @@ public extension String {
         - returns: Character as String or nil if the index is out of bounds
     */
     subscript (index: Int) -> String? {
-        if let char = Array(self.characters).get(index) {
+        if let char = Array(self).get(index) {
             return String(char)
         }
 
@@ -102,7 +102,7 @@ public extension String {
         - returns: Array of substrings
     */
     func explode (_ separator: Character) -> [String] {
-      return self.characters.split { $0 == separator }.map { String($0) }
+      return self.split { $0 == separator }.map { String($0) }
     }
 
     /**
@@ -132,7 +132,7 @@ public extension String {
     */
     func containsMatch (_ pattern: String, ignoreCase: Bool = false) throws -> Bool? {
         if let regex = try ExSwift.regex(pattern, ignoreCase: ignoreCase) {
-            let range = NSMakeRange(0, self.characters.count)
+            let range = NSMakeRange(0, self.count)
             return regex.firstMatch(in: self, options: [], range: range) != nil
         }
 
@@ -149,7 +149,7 @@ public extension String {
     */
     func replaceMatches (_ pattern: String, withString replacementString: String, ignoreCase: Bool = false) throws -> String? {
         if let regex = try ExSwift.regex(pattern, ignoreCase: ignoreCase) {
-            let range = NSMakeRange(0, self.characters.count)
+            let range = NSMakeRange(0, self.count)
             return regex.stringByReplacingMatches(in: self, options: [], range: range, withTemplate: replacementString)
         }
         
