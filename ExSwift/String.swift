@@ -15,10 +15,6 @@ public extension String {
     */
     var length: Int { return self.count }
 
-    /**
-        self.capitalizedString shorthand
-    */
-    var capitalized: String { return self.capitalized }
 
     /**
         Returns the substring in the given range
@@ -36,15 +32,6 @@ public extension String {
         return String(self[range])
     }
 
-    subscript (range: CountableRange<Int>) -> String? {
-        if range.lowerBound < 0 || range.upperBound > self.length {
-           return nil
-        }
-
-        let range = index(startIndex, offsetBy: range.lowerBound) ..< index(startIndex, offsetBy: range.upperBound)
-
-        return String(self[range])
-    }
 
 
     /**
