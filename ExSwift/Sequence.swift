@@ -94,28 +94,6 @@ internal extension AnySequence {
     }
     
     /**
-        Filters the sequence only including items that match the test.
-    
-        - parameter include: Function invoked to test elements for inclusion in the sequence
-        - returns: Filtered sequence
-    */
-    func filter(_ include: (Element) -> Bool) -> AnySequence<Element> {
-        return AnySequence(self.filter(include))
-    }
-    
-    /**
-        Opposite of filter.
-    
-        - parameter exclude: Function invoked to test elements for exlcusion from the sequence
-        - returns: Filtered sequence
-    */
-    func reject (_ exclude: ((Element) -> Bool)) -> AnySequence<Element> {
-        return self.filter {
-            return !exclude($0)
-        }
-    }
-    
-    /**
         Skips the elements in the sequence up until the condition returns false.
     
         - parameter condition: A function which returns a boolean if an element satisfies a given condition or not
