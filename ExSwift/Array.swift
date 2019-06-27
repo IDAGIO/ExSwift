@@ -403,18 +403,18 @@ public extension Array {
 
     }
 
-    /**
-        Shuffles the values of the array into a new one
-        
-        - returns: Shuffled copy of self
-    */
-    public func shuffled () -> Array {
-        var shuffled = self
-        
-        shuffled.shuffle()
-
-        return shuffled
-    }
+//    /**
+//        Shuffles the values of the array into a new one
+//        
+//        - returns: Shuffled copy of self
+//    */
+//    public func shuffled () -> Array {
+//        var shuffled = self
+//        
+//        shuffled.shuffle()
+//
+//        return shuffled
+//    }
 
     /**
         Returns a random subarray of given length.
