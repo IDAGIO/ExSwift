@@ -148,11 +148,11 @@
 			};
 			buildConfigurationList = 1E11AF7E1943222D006BCE48 /* Build configuration list for PBXProject "ExSwift" */;
 			compatibilityVersion = "Xcode 10.0";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
+				Base,
 			);
 			mainGroup = 1E11AF7A1943222D006BCE48;
 			productRefGroup = 1E11AF851943222D006BCE48 /* Products */;
