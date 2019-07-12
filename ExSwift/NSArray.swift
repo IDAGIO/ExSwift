@@ -15,7 +15,7 @@ public extension NSArray {
 
    - returns: Array of Swift objects
    */
-  public func cast <OutType> () -> [OutType] {
+    func cast <OutType> () -> [OutType] {
     var result = [OutType]()
 
     for item : Any in self {
@@ -31,7 +31,7 @@ public extension NSArray {
 
    - returns: Flattened array
    */
-  public func flatten <OutType> () -> [OutType] {
+    func flatten <OutType> () -> [OutType] {
     var result = [OutType]()
     let mirror = Mirror(reflecting: self)
     if let mirrorChildrenCollection = AnyRandomAccessCollection(mirror.children) {
@@ -48,7 +48,7 @@ public extension NSArray {
 
    - returns: Flattened array
    */
-  public func flattenAny () -> [Any] {
+    func flattenAny () -> [Any] {
     var result = [Any]()
 
     for item in self {
